@@ -112,16 +112,19 @@ while(b != 0)
 int main()
 {
     int STEP ;
-    int MOD ;
-    cin >> STEP >> MOD ;
+    int MODulo ;
+    int n;
+    int t[n] ;
 
-    int dp[MOD] ; 
+    cin >> STEP   ;
+    cin >> MODulo ;
+    int dp[MODulo] ; 
     dp[0] = 0 ;
     si Numbers ;
     Numbers.insert(0) ; 
 
-    FOR( x, 1 , MOD ){
-        dp[x] =   ( dp[x- 1] + STEP ) % MOD ;
+    FOR( x, 1 , MODulo ){
+        dp[x] =   ( dp[x- 1] + STEP ) % MODulo ;
         Numbers.insert(dp[x]);
     }
    // sort(dp , dp + MOD) ;
@@ -135,9 +138,9 @@ int main()
             break; 
     }
     */
-    bool ok = Numbers.size() == MOD ;
+    bool ok = Numbers.size() == MODulo ;
     //Affichage avec Format
-    cout << setw(10)  << STEP << setw(10) << MOD  ;
+    cout << setw(10)  << STEP << setw(10) << MODulo  ;
     str choice = (ok) ?  "Good Choice" : "Bad Choice" ; 
     cout << "     " << choice <<endl << endl  ; 
 
