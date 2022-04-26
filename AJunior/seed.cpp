@@ -90,7 +90,7 @@ freopen("output.txt", "w", stdout);
 
 
 const double PI = acos(-1.0);
-const int MOD = 1e9 + 7;
+//const int MOD = 1e9 + 7;
 const int MX = 2e5 + 5;
 const long long int INF = 1e18;
 
@@ -112,38 +112,25 @@ while(b != 0)
 int main()
 {
     int STEP ;
-    int MODulo ;
-    int n;
-    int t[n] ;
+    int MOD ;
+    
+  
 
-    cin >> STEP   ;
-    cin >> MODulo ;
-    int dp[MODulo] ; 
-    dp[0] = 0 ;
-    si Numbers ;
-    Numbers.insert(0) ; 
+    while(scanf("%d%d", &STEP , &MOD) == 2) { 
+        vi dp ; 
+        dp.push_back(0);
 
-    FOR( x, 1 , MODulo ){
-        dp[x] =   ( dp[x- 1] + STEP ) % MODulo ;
-        Numbers.insert(dp[x]);
+        si Numbers ;
+        Numbers.insert(0) ; 
+
+        FOR( x, 1 , MOD ){
+            dp.push_back(   ( dp[x- 1] + STEP ) % MOD) ;
+            Numbers.insert(dp[x]);
+        }
+    
+        printf("%10d%10d    %s\n\n", STEP ,MOD , (Numbers.size() == MOD) ?  "Good Choice" : "Bad Choice");
+
     }
-   // sort(dp , dp + MOD) ;
-   /*
-    bool ok = true ;
-
-    REP( i , MOD ){
-        cout << dp [i] << endl;
-        ok = (dp[i] == i)? true : false ;
-        if (!ok)
-            break; 
-    }
-    */
-    bool ok = Numbers.size() == MODulo ;
-    //Affichage avec Format
-    cout << setw(10)  << STEP << setw(10) << MODulo  ;
-    str choice = (ok) ?  "Good Choice" : "Bad Choice" ; 
-    cout << "     " << choice <<endl << endl  ; 
-
     
     return 0;
 }
