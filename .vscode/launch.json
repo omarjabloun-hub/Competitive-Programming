@@ -12,11 +12,7 @@
       "program": "d:/Soft/CP/Junior/BJunior/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
-<<<<<<< HEAD
       "miDebuggerPath": "gdb",
-=======
-      "miDebuggerPath": "C:/Program Files/CodeBlocks/MinGW/bin/gdb.exe",
->>>>>>> f138f4f83b1a785fb19cc9f6a9ba827f31899e9a
       "console": "integratedTerminal",
       "setupCommands": [
         {
