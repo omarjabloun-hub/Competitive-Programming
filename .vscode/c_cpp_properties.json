@@ -1,6 +1,7 @@
 {
   "configurations": [
     {
+<<<<<<< HEAD
       "name": "windows-cygwin-gcc-x64",
       "includePath": [
         "${workspaceFolder}/**"
@@ -9,6 +10,16 @@
       "cStandard": "${default}",
       "cppStandard": "${default}",
       "intelliSenseMode": "linux-gcc-x64",
+=======
+      "name": "windows-gcc-x64",
+      "includePath": [
+        "${workspaceFolder}/**"
+      ],
+      "compilerPath": "C:/Program Files/CodeBlocks/MinGW/bin/gcc.exe",
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "intelliSenseMode": "windows-gcc-x64",
+>>>>>>> f138f4f83b1a785fb19cc9f6a9ba827f31899e9a
       "compilerArgs": []
     }
   ],
