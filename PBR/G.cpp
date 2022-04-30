@@ -27,12 +27,12 @@
 
 using namespace std;
 
-#define ll  long long int  // 10^18 2^64-1
+#define ll  long long // 10^18 2^64-1
 #define db  double
 #define str string
 #define l long // 10^9 2^32-1
-#define ul  unsigned long int
-#define ull unsigned long long int
+#define ul  unsigned l
+#define ull unsigned ll
 #define pi  pair<int, int>
 #define pl  pair<ll, ll>
 #define pd  pair<db, db>
@@ -98,23 +98,65 @@ inline int aMin(int x, int y) { return ((y > x) ? x : y); }
 inline int aMax(int x, int y) { return ((y < x) ? x : y); }
 
 
-ll pgcd ( ll a, ll b ) 
-{  ll r=0 ; 
+long long int pgcd ( long long int a,long long int b ) 
+{ long long int r=0 ; 
 while(b != 0)
     {
       r = a%b;
       a = b;
       b = r; 
     }
-        return(a) ;
+    return(a) ;
 }
-
+bool rev(str s ,int n){
+        mii ma ;
+        ma['0'] = '0' ;
+        ma['1'] = '1' ;
+        ma['2'] = '5' ;
+        
+       ma['5'] = '2' ;
+        ma['6'] = '9' ;
+        ma['8'] = '8' ;
+        ma['9'] = '6' ;
+        str s1=s;
+        reverse(s.begin(), s.end());
+       str ch= "" ;
+        REP( i , n ){
+            ch+=(char)ma[s[i]] ;
+        }
+        
+        return ch == s1 ;
+}
+void affiche(int** M){
+    REP( i , 4 ){
+        REP( j , 4 ){
+            cout << M[i][j] << endl;
+        }
+    }
+}
 int main()
 {
-    int tc ;
-    while (cin >> tc &&  tc != 0)
-    {
-        cout << 1 << endl;
+    int tc;
+    cin >> tc;
+    
+    while (tc--)
+    { 
+        str s ;
+        int m[4][4]  ;
+            char c;
+            REP( i , 4 )
+                REP( j , 4 ){
+                    scanf("%c",&c) ;
+                     fflush(stdin);
+                    if (c == ' ')
+                        m[i][j] = -1 ;
+                    else
+                     m[i][j] = (int) c ;
+                    }
+                affiche(m) ;
+            
+       
+
     }
     
     return 0;
