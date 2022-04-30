@@ -25,5 +25,9 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
-  ]
+  ],
+  "files.associations": {
+    "utility": "cpp",
+    "iostream": "cpp"
+  }
 }
