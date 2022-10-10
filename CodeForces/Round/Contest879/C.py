@@ -15,7 +15,7 @@ while(tc >= 0) :
         for j in range(n) :
             word = input()
             l.append(word)
-            M[i]+=
+            M[i]+= 1 
     
     score = [0]*3
     
