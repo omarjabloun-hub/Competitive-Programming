@@ -43,34 +43,41 @@ const int MOD = 1e9 + 7;
 const int MX = 2e5 + 5;
 const long long int INF = 1e18;
 
-int solve(int l , int r , int n , vector<int > a ){
-
-    FOR(i, l , r){
-        if(a[i] < (i-l+1)){
-            int nn = i- l  + 1;
-
-            return (nn*(nn+1) / 2 ) + solve(min(i+1 , abs(i-a[i])) , n , n , a) ;
-        }
-    }
-
-    int nn = r - l + 1;
-
-    return (nn*(nn+1)/2) ;
-}
-
+char  grid[8][8] ;
 int main()
 {
     int tc ;
     cin >> tc ;
     while (tc -- )
     {
-        int n , x ; cin >> n ;
-        vector<int> a ;
-        REP( i , n ){
-            cin >> x ;
-            a.push_back(x) ;
+        
+        REP( i , 8 ){
+            REP( j , 8 ){
+                cin >> grid[i][j] ;
+            }
         }
-        cout << solve( 0 , n , n , a)  << endl;
+        char ans = ';' ;
+        REP( i , 8 ){
+            int nb = 0 ;
+            REP( j , 8 ){
+                if(grid[i][j] == 'R') nb++ ;
+            }
+            if( nb == 8 ) {
+                ans = 'R' ;
+                break;
+            }
+        }
+        REP( i , 8 ){
+            int nb = 0 ;
+            REP( j , 8 ){
+                if(grid[j][i] == 'B') nb++ ;
+            }
+            if( nb == 8 ) {
+                ans = 'B' ;
+                break;
+            }
+        }
+        cout << ans << endl;
     }
     
     

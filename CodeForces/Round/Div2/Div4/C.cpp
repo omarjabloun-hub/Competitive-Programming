@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -6,11 +5,11 @@ using namespace std;
 #define ll  long long  // 10^18 2^64-1
 
 void no(){
-    cout << "NO\n";
+   std ::  cout << "NO\n";
 
 }
 void yes(){
-    cout << "YES\n" ;
+   std ::  cout << "YES\n" ;
 }
 
 #define init(a, b) memset(a, b, sizeof(a))
@@ -43,19 +42,40 @@ const int MOD = 1e9 + 7;
 const int MX = 2e5 + 5;
 const long long int INF = 1e18;
 
-int solve(int l , int r , int n , vector<int > a ){
 
-    FOR(i, l , r){
-        if(a[i] < (i-l+1)){
-            int nn = i- l  + 1;
+char grid [8][8] ;
 
-            return (nn*(nn+1) / 2 ) + solve(min(i+1 , abs(i-a[i])) , n , n , a) ;
+char solve(){
+
+    char ans ;
+    
+    REP(i , 8 ) {
+        if(grid[i][0]!='.' ){
+            
+        
+        int j ;
+        for( j = 1 ;  j< 8  ; j++ ){
+            if( grid[i][0] != grid[i][j] )
+                break;
+        }
+        if(j == 8){
+            return grid[i][0] ;
+        }
+        }
+
+        if(grid[0][i] != '.'){
+        int  j = 1 ;
+        for( ; j< 8  ; j++ ){
+            if(grid[0][i] != grid[j][i] )
+                break;
+        }
+        if(j == 8){
+            return grid[0][i] ;
+        }
         }
     }
-
-    int nn = r - l + 1;
-
-    return (nn*(nn+1)/2) ;
+ 
+    return ';' ;
 }
 
 int main()
@@ -64,14 +84,19 @@ int main()
     cin >> tc ;
     while (tc -- )
     {
-        int n , x ; cin >> n ;
-        vector<int> a ;
+        int n = 8 ;
+
         REP( i , n ){
-            cin >> x ;
-            a.push_back(x) ;
+          
+            REP( j , n){
+
+                cin >> grid[i][j] ;
+
+            }
+            
         }
-        cout << solve( 0 , n , n , a)  << endl;
-    }
+         cout <<  solve()  << endl;
+    }   
     
     
     return 0;

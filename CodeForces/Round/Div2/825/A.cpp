@@ -50,7 +50,41 @@ int main()
     cin >> tc ;
     while (tc -- )
     {
-        
+        int n ;
+        vector <int> a;
+        vector <int> b ;
+        cin >> n ;
+        int x ;
+
+        REP( i , n ){
+            cin >> x ;
+            a.push_back(x) ;
+        }
+        REP( i , n ){
+            cin >> x ;
+            b.push_back(x) ;
+
+        }
+        int s = 0 ;
+        REP( i , n ){
+           if(a[i] != b[i]){
+                s+=1 ;
+           }
+        }
+     //   cout << "toul " << s << endl;
+        int s2 = 1 ;
+        sort(a.begin() , a.end()) ;
+        sort(b.begin() , b.end()) ;
+         REP( i , n ){
+           if(a[i] != b[i]){
+                s2+=1 ;
+           }
+        }
+     //  cout << "tabdil " << s2 << endl;
+
+
+        cout << min(s , s2 ) << endl;
+
     }
     
     

@@ -43,20 +43,6 @@ const int MOD = 1e9 + 7;
 const int MX = 2e5 + 5;
 const long long int INF = 1e18;
 
-int solve(int l , int r , int n , vector<int > a ){
-
-    FOR(i, l , r){
-        if(a[i] < (i-l+1)){
-            int nn = i- l  + 1;
-
-            return (nn*(nn+1) / 2 ) + solve(min(i+1 , abs(i-a[i])) , n , n , a) ;
-        }
-    }
-
-    int nn = r - l + 1;
-
-    return (nn*(nn+1)/2) ;
-}
 
 int main()
 {
@@ -64,13 +50,22 @@ int main()
     cin >> tc ;
     while (tc -- )
     {
-        int n , x ; cin >> n ;
-        vector<int> a ;
+        set<int> s ;
+        int n ; cin >> n ;
+        bool ok = true ;
         REP( i , n ){
-            cin >> x ;
-            a.push_back(x) ;
+            int x ; cin >> x ;
+            if(s.find(x) != s.end() && ok == true)  {
+                ok = false ; 
+            } else{
+                s.insert(x) ;
+            }
         }
-        cout << solve( 0 , n , n , a)  << endl;
+        if(ok){
+            yes() ;
+        }else{
+            no() ;
+        }
     }
     
     

@@ -43,20 +43,6 @@ const int MOD = 1e9 + 7;
 const int MX = 2e5 + 5;
 const long long int INF = 1e18;
 
-int solve(int l , int r , int n , vector<int > a ){
-
-    FOR(i, l , r){
-        if(a[i] < (i-l+1)){
-            int nn = i- l  + 1;
-
-            return (nn*(nn+1) / 2 ) + solve(min(i+1 , abs(i-a[i])) , n , n , a) ;
-        }
-    }
-
-    int nn = r - l + 1;
-
-    return (nn*(nn+1)/2) ;
-}
 
 int main()
 {
@@ -64,13 +50,42 @@ int main()
     cin >> tc ;
     while (tc -- )
     {
-        int n , x ; cin >> n ;
-        vector<int> a ;
-        REP( i , n ){
+        int n ;
+        cin >> n ;
+        map<int, int> mp ;
+        for (int i = 0; i < n; i++)
+        {
+            int x ;
             cin >> x ;
-            a.push_back(x) ;
+            mp[x] ++ ;
         }
-        cout << solve( 0 , n , n , a)  << endl;
+         // if the pred is not greater than the current then cout no
+        int pred = INT32_MAX ;
+        int predValue = -1 ;
+        bool flag = true ;
+        for (auto x : mp)
+        {
+            if (x.second <= pred && predValue == x.first - 1)
+            {
+                pred = x.second ;
+                predValue = x.first ;
+            }
+            else 
+            {
+                flag = false ;
+                break ;
+            }
+        }
+     
+        if (flag)
+        {
+            cout << "YES\n" ;
+        }
+        else
+        {
+            cout << "NO\n" ;
+        }
+        
     }
     
     
